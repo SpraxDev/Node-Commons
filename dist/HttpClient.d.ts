@@ -1,5 +1,35 @@
 /// <reference types="node" />
-import superagent from 'superagent';
+import superagent, { HTTPError } from 'superagent';
+export declare type HttpResponse = {
+    accepted: boolean;
+    badRequest: boolean;
+    body: Buffer;
+    charset: string;
+    clientError: boolean;
+    error: false | HTTPError;
+    files: any;
+    forbidden: boolean;
+    get(header: string): string;
+    get(header: 'Set-Cookie'): string[];
+    header: any;
+    headers: any;
+    info: boolean;
+    links: Record<string, string>;
+    noContent: boolean;
+    notAcceptable: boolean;
+    notFound: boolean;
+    ok: boolean;
+    redirect: boolean;
+    serverError: boolean;
+    status: number;
+    statusCode: number;
+    statusType: number;
+    text: string;
+    type: string;
+    unauthorized: boolean;
+    xhr: any;
+    redirects: string[];
+};
 export declare type HttpClientOptions = {
     dontUseGlobalAgent?: boolean;
     defaultHeaders?: {
@@ -13,14 +43,10 @@ export default class HttpClient {
     constructor(userAgent: string, options?: HttpClientOptions);
     get(url: string, headers?: {
         [key: string]: string;
-    }): Promise<superagent.Response & {
-        body: Buffer;
-    }>;
+    }): Promise<HttpResponse>;
     post(url: string, headers?: {
         [key: string]: string;
-    }, body?: string | object): Promise<superagent.Response & {
-        body: Buffer;
-    }>;
+    }, body?: string | object): Promise<HttpResponse>;
     protected applyDefaults(req: superagent.Request, headers?: {
         [key: string]: string;
     }, body?: string | object): superagent.Request;

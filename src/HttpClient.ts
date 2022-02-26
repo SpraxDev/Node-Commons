@@ -1,5 +1,36 @@
 import Os from 'os';
-import superagent from 'superagent';
+import superagent, { HTTPError } from 'superagent';
+
+export type HttpResponse = {
+  accepted: boolean;
+  badRequest: boolean;
+  body: Buffer;
+  charset: string;
+  clientError: boolean;
+  error: false | HTTPError;
+  files: any;
+  forbidden: boolean;
+  get(header: string): string;
+  get(header: 'Set-Cookie'): string[];
+  header: any;
+  headers: any;
+  info: boolean;
+  links: Record<string, string>;
+  noContent: boolean;
+  notAcceptable: boolean;
+  notFound: boolean;
+  ok: boolean;
+  redirect: boolean;
+  serverError: boolean;
+  status: number;
+  statusCode: number;
+  statusType: number;
+  text: string;
+  type: string;
+  unauthorized: boolean;
+  xhr: any;
+  redirects: string[];
+};
 
 export type HttpClientOptions = {
   dontUseGlobalAgent?: boolean;
@@ -18,14 +49,14 @@ export default class HttpClient {
     this.agent = options.dontUseGlobalAgent ? superagent.agent() : superagent;
   }
 
-  async get(url: string, headers?: { [key: string]: string }): Promise<superagent.Response & { body: Buffer }> {
+  async get(url: string, headers?: { [key: string]: string }): Promise<HttpResponse> {
     return new Promise((resolve, reject) => {
       this.applyDefaults(this.agent.get(url), headers)
           .end(HttpClient.getReqHandler(resolve, reject));
     });
   }
 
-  async post(url: string, headers?: { [key: string]: string }, body?: string | object): Promise<superagent.Response & { body: Buffer }> {
+  async post(url: string, headers?: { [key: string]: string }, body?: string | object): Promise<HttpResponse> {
     return new Promise((resolve, reject) => {
       this.applyDefaults(this.agent.post(url), headers, body)
           .end(HttpClient.getReqHandler(resolve, reject));
