@@ -5,6 +5,8 @@
 # npm and other dependencies
 /node_modules/
 /coverage/
+/reports/
+/.stryker-tmp/
 
 
 # JetBrains IDEs
