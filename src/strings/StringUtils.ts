@@ -3,7 +3,7 @@ export default class StringUtils {
    * Return true if the given string only contains number characters.
    */
   public static isNumeric(str: string): boolean {
-    return /^[0-9]+$/.test(str);
+    return /^\d+$/.test(str);
   }
 
   /**

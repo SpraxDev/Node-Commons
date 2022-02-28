@@ -60,7 +60,7 @@ export default class ConfigFile<T> {
   }
 
   private lazyDeepMerge(...objects: T[]): T {
-    const merged = deepMerge.withOptions<any>({mergeArrays: false}, ...objects) as any;
+    const merged = deepMerge.withOptions<any>({mergeArrays: false}, ...objects);
 
     this.resolveLazyValues(merged);
     return merged;
