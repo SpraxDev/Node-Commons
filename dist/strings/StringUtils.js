@@ -5,7 +5,7 @@ class StringUtils {
      * Return true if the given string only contains number characters.
      */
     static isNumeric(str) {
-        return /^[0-9]+$/.test(str);
+        return /^\d+$/.test(str);
     }
     /**
      * Arguments are formatted as `{key}` inside a string and may not be nested.
