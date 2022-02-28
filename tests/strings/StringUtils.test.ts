@@ -13,13 +13,19 @@ describe('Formatting strings (array)', () => {
     expect(StringUtils.format('Hello {0}', ['World'], '!'))
         .toBe('Hello World');
 
-    expect(StringUtils.format('Hello {0}{5}', ['World'], '!'))
+    expect(StringUtils.format('Hello {0}{50}', ['World'], '!'))
         .toBe('Hello World!');
   });
 
   test('Use same index twice, an undefined one and escape one', () => {
     expect(StringUtils.format('{0} ({0}) is {{0}} **{2}** using {1}!', ['Sprax', 'TypeScript']))
         .toBe('Sprax (Sprax) is {0} **{2}** using TypeScript!');
+  });
+
+  // FIXME
+  xtest('input string with random double curly braces', () => {
+    expect(StringUtils.format('( ・ω・)o-{{[〃]}', []))
+        .toBe('( ・ω・)o-{{[〃]}');
   });
 });
 
