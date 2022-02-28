@@ -4,7 +4,7 @@ import StringUtils from './StringUtils';
 export const HOSTNAME_PATTERN = /(?=^.{4,253}$)(^((?!-)[a-z0-9-]{0,62}[a-z0-9]\.)+[a-z]{2,63}\.?$)/i;
 export const EMAIL_PATTERN = /^[a-z0-9.!#$%&'*+/="?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$/i;
 
-export type HttpCheckResult = { valid: boolean, issue?: 'protocol' | 'port' | 'hostname' };
+export type HttpCheckResult = { valid: boolean, issue?: 'hostname' | 'port' | 'protocol' };
 
 export default class StringValidators {
   public static looksLikeHttpUrl(url: string): HttpCheckResult {

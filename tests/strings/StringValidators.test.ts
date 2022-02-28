@@ -9,7 +9,11 @@ describe('Check if strings look like valid HTTP(s)-URLs', () => {
     expect(StringValidators.looksLikeHttpUrl('https://www.example.com/'))
         .toStrictEqual(valid);
 
+    expect(StringValidators.looksLikeHttpUrl('hhttps://www.example.com/'))
+        .toStrictEqual({valid: false, issue: 'protocol'});
     expect(StringValidators.looksLikeHttpUrl('sftp://www.example.com/'))
+        .toStrictEqual({valid: false, issue: 'protocol'});
+    expect(StringValidators.looksLikeHttpUrl('https://\nexample.com/'))
         .toStrictEqual({valid: false, issue: 'protocol'});
 
     expect(StringValidators.looksLikeHttpUrl('example.com/'))
@@ -36,14 +40,20 @@ describe('Check if strings look like valid HTTP(s)-URLs', () => {
   test('Test ports', () => {
     expect(StringValidators.looksLikeHttpUrl('https://www.example.com:8080/'))
         .toStrictEqual(valid);
+    expect(StringValidators.looksLikeHttpUrl('https://www.example.com:65535/'))
+        .toStrictEqual(valid);
 
     expect(StringValidators.looksLikeHttpUrl('https://www.example.com:99999/'))
+        .toStrictEqual({valid: false, issue: 'port'});
+    expect(StringValidators.looksLikeHttpUrl('https://www.example.com:0/'))
         .toStrictEqual({valid: false, issue: 'port'});
     expect(StringValidators.looksLikeHttpUrl('https://www.example.com:abc/'))
         .toStrictEqual({valid: false, issue: 'port'});
   });
 
   test('With path and query parameters', () => {
+    expect(StringValidators.looksLikeHttpUrl('https://example.com'))
+        .toStrictEqual(valid);
     expect(StringValidators.looksLikeHttpUrl('https://example.com/Hellû'))
         .toStrictEqual(valid);
     expect(StringValidators.looksLikeHttpUrl('https://example.com/Hell%C3%BB?foo=bar'))
