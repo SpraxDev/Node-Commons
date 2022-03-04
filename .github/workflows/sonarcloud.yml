@@ -9,6 +9,7 @@ on:
 jobs:
   SonarCloud:
     runs-on: ubuntu-latest
+    if: $SONAR_TOKEN != ""
 
     steps:
       - uses: actions/checkout@v2
