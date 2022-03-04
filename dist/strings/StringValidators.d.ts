@@ -2,7 +2,7 @@ export declare const HOSTNAME_PATTERN: RegExp;
 export declare const EMAIL_PATTERN: RegExp;
 export declare type HttpCheckResult = {
     valid: boolean;
-    issue?: 'protocol' | 'port' | 'hostname';
+    issue?: 'hostname' | 'port' | 'protocol';
 };
 export default class StringValidators {
     static looksLikeHttpUrl(url: string): HttpCheckResult;
