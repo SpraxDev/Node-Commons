@@ -14,12 +14,12 @@
     <img alt="Node.js CI" src="https://github.com/SpraxDev/Node-Commons/actions/workflows/nodejs.yml/badge.svg">
   </a>
 
-  <a href="https://sonarcloud.io/summary/new_code?id=SpraxDev_Node-Commons">
+  <a href="https://sonarcloud.io/summary/overall?id=SpraxDev_Node-Commons">
     <img alt="Quality Gate Status"
          src="https://sonarcloud.io/api/project_badges/measure?project=SpraxDev_Node-Commons&metric=alert_status">
   </a>
 
-  <a href="https://sonarcloud.io/summary/new_code?id=SpraxDev_Node-Commons">
+  <a href="https://sonarcloud.io/summary/overall?id=SpraxDev_Node-Commons">
     <img alt="Coverage"
          src="https://sonarcloud.io/api/project_badges/measure?project=SpraxDev_Node-Commons&metric=coverage">
   </a>
