@@ -154,8 +154,13 @@ describe('Additional functionality', () => {
 
   test('Config changes only written to file when changed', () => {
     const expected = JSON.stringify(expectedCfgData, null, 1);
-    Fs.writeFileSync(cfg.path, expected);
 
+    expect(Fs.existsSync(cfg.path)).toBeFalsy();
+    cfg.saveIfChanged();
+    expect(Fs.readFileSync(cfg.path, 'utf-8'))
+        .toEqual(JSON.stringify(expectedCfgData, null, cfg.prettyPrint));
+
+    Fs.writeFileSync(cfg.path, expected);
     cfg.saveIfChanged();
 
     expect(Fs.readFileSync(cfg.path, 'utf-8'))

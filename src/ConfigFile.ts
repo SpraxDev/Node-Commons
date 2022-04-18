@@ -1,4 +1,4 @@
-import fs from 'fs';
+import Fs from 'fs';
 import Path from 'path';
 import deepMerge from 'ts-deepmerge';
 
@@ -41,20 +41,21 @@ export default class ConfigFile<T> {
   load(): void {
     let parsedJson: any = {};
 
-    if (fs.existsSync(this.path)) {
-      parsedJson = JSON.parse(fs.readFileSync(this.path, 'utf-8'));
+    if (Fs.existsSync(this.path)) {
+      parsedJson = JSON.parse(Fs.readFileSync(this.path, 'utf-8'));
     }
 
     this.data = this.lazyDeepMerge(this.defaults, parsedJson);
   }
 
   save(): void {
-    fs.mkdirSync(Path.dirname(this.path), {recursive: true});
-    fs.writeFileSync(this.path, JSON.stringify(this.data, null, this.prettyPrint), 'utf-8');
+    Fs.mkdirSync(Path.dirname(this.path), {recursive: true});
+    Fs.writeFileSync(this.path, JSON.stringify(this.data, null, this.prettyPrint), 'utf-8');
   }
 
   saveIfChanged(): void {
-    if (JSON.stringify(this.data) != JSON.stringify(JSON.parse(fs.readFileSync(this.path, 'utf-8')))) {
+    if (!Fs.existsSync(this.path) ||
+        JSON.stringify(this.data) != JSON.stringify(JSON.parse(Fs.readFileSync(this.path, 'utf-8')))) {
       this.save();
     }
   }

@@ -30,7 +30,8 @@ class ConfigFile {
         fs_1.default.writeFileSync(this.path, JSON.stringify(this.data, null, this.prettyPrint), 'utf-8');
     }
     saveIfChanged() {
-        if (JSON.stringify(this.data) != JSON.stringify(JSON.parse(fs_1.default.readFileSync(this.path, 'utf-8')))) {
+        if (!fs_1.default.existsSync(this.path) ||
+            JSON.stringify(this.data) != JSON.stringify(JSON.parse(fs_1.default.readFileSync(this.path, 'utf-8')))) {
             this.save();
         }
     }
