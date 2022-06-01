@@ -40,7 +40,7 @@
     "@stryker-mutator/jest-runner": "^6.0.2",
     "@stryker-mutator/typescript-checker": "^6.0.2",
     "@tsconfig/node16": "^1.0.2",
-    "@types/jest": "^27.5.1",
+    "@types/jest": "^27.5.2",
     "@types/node": "^16.11.36",
     "@types/superagent": "^4.1.15",
     "jest": "^28.1.0",
