@@ -6,10 +6,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const ts_deepmerge_1 = __importDefault(require("ts-deepmerge"));
+// TODO: atomicWrites needs test coverage
+// TODO: We don't want to see #save() fail because the tmp file already exists (mode 'wx'), so we need to choose a different name
 class ConfigFile {
-    constructor(path, defaults, prettyPrint = 4, autoLoad = true) {
+    constructor(path, defaults, prettyPrint = 4, autoLoad = true, atomicWrites = true) {
         this.path = path;
         this.prettyPrint = prettyPrint !== false ? prettyPrint : 0;
+        this.atomicWrites = atomicWrites;
         this.defaults = Object.freeze(defaults);
         this.data = {};
         if (!autoLoad) {
@@ -27,7 +30,17 @@ class ConfigFile {
     }
     save() {
         fs_1.default.mkdirSync(path_1.default.dirname(this.path), { recursive: true });
-        fs_1.default.writeFileSync(this.path, JSON.stringify(this.data, null, this.prettyPrint), 'utf-8');
+        let targetFilePath = this.path;
+        if (this.atomicWrites) {
+            targetFilePath = `${this.path}.tmp.${process.pid}-${Date.now()}`;
+        }
+        fs_1.default.writeFileSync(targetFilePath, JSON.stringify(this.data, null, this.prettyPrint), {
+            encoding: 'utf-8',
+            flag: this.atomicWrites ? 'wx' : 'w'
+        });
+        if (this.atomicWrites) {
+            fs_1.default.renameSync(targetFilePath, this.path);
+        }
     }
     saveIfChanged() {
         if (!fs_1.default.existsSync(this.path) ||

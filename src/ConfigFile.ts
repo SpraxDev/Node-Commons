@@ -16,16 +16,20 @@ export interface LazyDefaults {
   [key: string]: ConfigFileValues | (() => ConfigFileValues);
 }
 
+// TODO: atomicWrites needs test coverage
+// TODO: We don't want to see #save() fail because the tmp file already exists (mode 'wx'), so we need to choose a different name
 export default class ConfigFile<T> {
   readonly path: string;
   readonly prettyPrint: number | string;
+  readonly atomicWrites: boolean;
 
   public readonly defaults: T;
   public data: T;
 
-  constructor(path: string, defaults: T, prettyPrint: number | string | false = 4, autoLoad: boolean = true) {
+  constructor(path: string, defaults: T, prettyPrint: number | string | false = 4, autoLoad: boolean = true, atomicWrites: boolean = true) {
     this.path = path;
     this.prettyPrint = prettyPrint !== false ? prettyPrint : 0;
+    this.atomicWrites = atomicWrites;
 
     this.defaults = Object.freeze(defaults);
     this.data = {} as any;
@@ -50,7 +54,20 @@ export default class ConfigFile<T> {
 
   save(): void {
     Fs.mkdirSync(Path.dirname(this.path), {recursive: true});
-    Fs.writeFileSync(this.path, JSON.stringify(this.data, null, this.prettyPrint), 'utf-8');
+
+    let targetFilePath = this.path;
+    if (this.atomicWrites) {
+      targetFilePath = `${this.path}.tmp.${process.pid}-${Date.now()}`;
+    }
+
+    Fs.writeFileSync(targetFilePath, JSON.stringify(this.data, null, this.prettyPrint), {
+      encoding: 'utf-8',
+      flag: this.atomicWrites ? 'wx' : 'w'
+    });
+
+    if (this.atomicWrites) {
+      Fs.renameSync(targetFilePath, this.path);
+    }
   }
 
   saveIfChanged(): void {

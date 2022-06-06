@@ -7,9 +7,10 @@ export interface LazyDefaults {
 export default class ConfigFile<T> {
     readonly path: string;
     readonly prettyPrint: number | string;
+    readonly atomicWrites: boolean;
     readonly defaults: T;
     data: T;
-    constructor(path: string, defaults: T, prettyPrint?: number | string | false, autoLoad?: boolean);
+    constructor(path: string, defaults: T, prettyPrint?: number | string | false, autoLoad?: boolean, atomicWrites?: boolean);
     load(): void;
     save(): void;
     saveIfChanged(): void;
