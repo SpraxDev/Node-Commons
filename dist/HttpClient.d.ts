@@ -1,6 +1,6 @@
 /// <reference types="node" />
 import superagent, { HTTPError } from 'superagent';
-export declare type HttpResponse = {
+export type HttpResponse = {
     accepted: boolean;
     badRequest: boolean;
     body: Buffer;
@@ -30,7 +30,7 @@ export declare type HttpResponse = {
     xhr: any;
     redirects: string[];
 };
-export declare type HttpClientOptions = {
+export type HttpClientOptions = {
     dontUseGlobalAgent?: boolean;
     defaultHeaders?: {
         [key: string]: string;

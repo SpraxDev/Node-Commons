@@ -1,4 +1,4 @@
-export declare type ConfigFileValues = string | number | boolean | null | string[] | number[] | boolean[] | {
+export type ConfigFileValues = string | number | boolean | null | string[] | number[] | boolean[] | {
     [key: string | number]: ConfigFileValues;
 };
 export interface LazyDefaults {

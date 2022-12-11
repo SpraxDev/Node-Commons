@@ -1,6 +1,6 @@
 export declare const HOSTNAME_PATTERN: RegExp;
 export declare const EMAIL_PATTERN: RegExp;
-export declare type HttpCheckResult = {
+export type HttpCheckResult = {
     valid: boolean;
     issue?: 'hostname' | 'port' | 'protocol';
 };
