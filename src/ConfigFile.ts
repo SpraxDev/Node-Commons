@@ -81,7 +81,7 @@ export default class ConfigFile<T> {
     const merged = deepMerge.withOptions<any>({mergeArrays: false}, ...objects);
 
     this.resolveLazyValues(merged);
-    return merged;
+    return merged as T;
   }
 
   private resolveLazyValues(object: { [key: string | number]: any }): void {
