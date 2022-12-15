@@ -29,7 +29,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
  * ```
  * Original author: https://stackoverflow.com/a/15754373/9346616
  */
-function restfulRequestHandler(req, res, next, handlers) {
+function handleRequestRestfully(req, res, next, handlers) {
     const method = (req.method || '').toLowerCase();
     if (method in handlers) {
         try {
@@ -62,5 +62,5 @@ function restfulRequestHandler(req, res, next, handlers) {
     res.set('Allow', allowedMethods.join(', ').toUpperCase());
     res.sendStatus(405);
 }
-exports.default = restfulRequestHandler;
+exports.default = handleRequestRestfully;
 //# sourceMappingURL=RestfulRequestHandler.js.map

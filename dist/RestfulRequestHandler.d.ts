@@ -26,7 +26,7 @@ import Express from 'express';
  * ```
  * Original author: https://stackoverflow.com/a/15754373/9346616
  */
-export default function restfulRequestHandler(req: Express.Request, res: Express.Response, next: Express.NextFunction, handlers: {
+export default function handleRequestRestfully(req: Express.Request, res: Express.Response, next: Express.NextFunction, handlers: {
     [key: string]: () => void | Promise<void>;
 }): void;
 //# sourceMappingURL=RestfulRequestHandler.d.ts.map
