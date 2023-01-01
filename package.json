@@ -36,7 +36,7 @@
     "ts-deepmerge": "^5.0.0"
   },
   "devDependencies": {
-    "@stryker-mutator/core": "^6.3.0",
+    "@stryker-mutator/core": "^6.3.1",
     "@stryker-mutator/jest-runner": "^6.3.0",
     "@stryker-mutator/typescript-checker": "^6.3.0",
     "@tsconfig/node16": "^1.0.3",
