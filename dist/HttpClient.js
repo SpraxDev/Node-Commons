@@ -6,6 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const os_1 = __importDefault(require("os"));
 const superagent_1 = __importDefault(require("superagent"));
 class HttpClient {
+    userAgent;
+    agent;
+    options;
     constructor(userAgent, options = {}) {
         this.userAgent = userAgent;
         this.options = options;

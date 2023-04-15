@@ -1,12 +1,12 @@
 /// <reference types="node" />
-import superagent, { HTTPError } from 'superagent';
+import superagent from 'superagent';
 export type HttpResponse = {
     accepted: boolean;
     badRequest: boolean;
     body: Buffer;
     charset: string;
     clientError: boolean;
-    error: false | HTTPError;
+    error: false | superagent.HTTPError;
     files: any;
     forbidden: boolean;
     get(header: string): string;

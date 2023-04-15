@@ -9,6 +9,11 @@ const ts_deepmerge_1 = __importDefault(require("ts-deepmerge"));
 // TODO: atomicWrites needs test coverage
 // TODO: We don't want to see #save() fail because the tmp file already exists (mode 'wx'), so we need to choose a different name
 class ConfigFile {
+    path;
+    prettyPrint;
+    atomicWrites;
+    defaults;
+    data;
     constructor(path, defaults, prettyPrint = 4, autoLoad = true, atomicWrites = true) {
         this.path = path;
         this.prettyPrint = prettyPrint !== false ? prettyPrint : 0;
