@@ -1,5 +1,5 @@
 import Os from 'os';
-import superagent, { HTTPError } from 'superagent';
+import superagent from 'superagent';
 
 export type HttpResponse = {
   accepted: boolean;
@@ -7,7 +7,7 @@ export type HttpResponse = {
   body: Buffer;
   charset: string;
   clientError: boolean;
-  error: false | HTTPError;
+  error: false | superagent.HTTPError;
   files: any;
   forbidden: boolean;
   get(header: string): string;
