@@ -24,7 +24,6 @@
     "build": "rm -Rf ./dist/* && tsc",
     "test": "jest --coverage",
     "test:mutant": "stryker run",
-    "snyk": "npm run build && snyk test",
     "prepublishOnly": "npm run build"
   },
   "engines": {
