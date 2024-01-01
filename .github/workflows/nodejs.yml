@@ -32,14 +32,14 @@ jobs:
       - run: npm run test:mutant
 
       - name: Upload test reports
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: test-reports_node${{ matrix.node-version }}
           path: |
             reports/
             coverage/
       - name: Upload dist/ directory
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist_node${{ matrix.node-version }}
           path: dist/
