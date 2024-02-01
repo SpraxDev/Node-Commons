@@ -36,7 +36,7 @@
   },
   "devDependencies": {
     "@stryker-mutator/core": "^8.0.0",
-    "@stryker-mutator/jest-runner": "^8.0.0",
+    "@stryker-mutator/jest-runner": "^8.2.2",
     "@stryker-mutator/typescript-checker": "^8.0.0",
     "@tsconfig/node18": "^18.2.2",
     "@types/express": "^4.17.21",
