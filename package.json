@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "superagent": "^8.1.2",
-    "ts-deepmerge": "^6.2.0"
+    "ts-deepmerge": "^7.0.0"
   },
   "devDependencies": {
     "@stryker-mutator/core": "^8.0.0",
