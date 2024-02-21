@@ -1,6 +1,6 @@
 import Fs from 'fs';
 import Path from 'path';
-import deepMerge from 'ts-deepmerge';
+import { merge as DeepMerge } from 'ts-deepmerge';
 
 export type ConfigFileValues =
     string |
@@ -78,7 +78,7 @@ export default class ConfigFile<T> {
   }
 
   private lazyDeepMerge(...objects: T[]): T {
-    const merged = deepMerge.withOptions<any>({mergeArrays: false}, ...objects);
+    const merged = DeepMerge.withOptions<any>({mergeArrays: false}, ...objects);
 
     this.resolveLazyValues(merged);
     return merged as T;

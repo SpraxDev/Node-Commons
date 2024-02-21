@@ -39,7 +39,7 @@ export type HttpClientOptions = {
 
 export default class HttpClient {
   readonly userAgent: string;
-  readonly agent: superagent.SuperAgentStatic;
+  readonly agent: superagent.Agent | superagent.SuperAgentStatic;
   readonly options: HttpClientOptions;
 
   constructor(userAgent: string, options: HttpClientOptions = {}) {
