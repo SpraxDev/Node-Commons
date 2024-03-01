@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
-const ts_deepmerge_1 = __importDefault(require("ts-deepmerge"));
+const ts_deepmerge_1 = require("ts-deepmerge");
 // TODO: atomicWrites needs test coverage
 // TODO: We don't want to see #save() fail because the tmp file already exists (mode 'wx'), so we need to choose a different name
 class ConfigFile {
@@ -54,7 +54,7 @@ class ConfigFile {
         }
     }
     lazyDeepMerge(...objects) {
-        const merged = ts_deepmerge_1.default.withOptions({ mergeArrays: false }, ...objects);
+        const merged = ts_deepmerge_1.merge.withOptions({ mergeArrays: false }, ...objects);
         this.resolveLazyValues(merged);
         return merged;
     }
