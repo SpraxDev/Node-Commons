@@ -31,7 +31,7 @@
     "npm": ">=9.0.0"
   },
   "dependencies": {
-    "superagent": "^8.1.2",
+    "superagent": "^9.0.2",
     "ts-deepmerge": "^7.0.0"
   },
   "devDependencies": {
