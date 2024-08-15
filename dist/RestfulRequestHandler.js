@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = handleRequestRestfully;
 // TODO: Make this function more generic to not only allow Express but also additional flexibility
 // TODO: allow sending custom/setting response body
 /**
@@ -62,5 +63,4 @@ function handleRequestRestfully(req, res, next, handlers) {
     res.set('Allow', allowedMethods.join(', ').toUpperCase());
     res.sendStatus(405);
 }
-exports.default = handleRequestRestfully;
 //# sourceMappingURL=RestfulRequestHandler.js.map

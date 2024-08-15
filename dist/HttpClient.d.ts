@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import superagent from 'superagent';
 export type HttpResponse = {
     accepted: boolean;
