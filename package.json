@@ -27,7 +27,7 @@
     "prepublishOnly": "npm run build"
   },
   "engines": {
-    "node": ">=18.0.0",
+    "node": ">=22.0.0",
     "npm": ">=9.0.0"
   },
   "dependencies": {
@@ -38,10 +38,10 @@
     "@stryker-mutator/core": "^8.5.0",
     "@stryker-mutator/jest-runner": "^8.5.0",
     "@stryker-mutator/typescript-checker": "^8.5.0",
-    "@tsconfig/node18": "^18.2.4",
+    "@tsconfig/node22": "^22.0.0",
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.12",
-    "@types/node": "^18.19.44",
+    "@types/node": "^22.3.0",
     "@types/superagent": "^8.1.4",
     "jest": "^29.7.0",
     "nodemon": "^3.1.4",
