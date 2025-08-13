@@ -23,7 +23,7 @@ describe('Formatting strings (array)', () => {
   });
 
   // FIXME
-  xtest('input string with random double curly braces', () => {
+  test.skip('input string with random double curly braces', () => {
     expect(StringUtils.format('( ・ω・)o-{{[〃]}', []))
         .toBe('( ・ω・)o-{{[〃]}');
   });
