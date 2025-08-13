@@ -1,0 +1,1 @@
+{"version":3,"file":"HttpClientEvents.js","sourceRoot":"","sources":["../../../src/http/client/HttpClientEvents.ts"],"names":[],"mappings":";;;AAKA,MAAa,eAAe;IAER;IADlB,YACkB,OAAoB;QAApB,YAAO,GAAP,OAAO,CAAa;IAEtC,CAAC;CACF;AALD,0CAKC;AAED,MAAa,gBAAgB;IAET;IACA;IAFlB,YACkB,OAAoB,EACpB,QAAsB;QADtB,YAAO,GAAP,OAAO,CAAa;QACpB,aAAQ,GAAR,QAAQ,CAAc;IAExC,CAAC;CACF;AAND,4CAMC"}

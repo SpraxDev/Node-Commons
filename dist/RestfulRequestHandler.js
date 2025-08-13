@@ -1,66 +1,51 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = handleRequestRestfully;
-// TODO: Make this function more generic to not only allow Express but also additional flexibility
-// TODO: allow sending custom/setting response body
+exports.default = handleRestfully;
 /**
- * This shortcut function responses with HTTP 405 to the requests having
- * a method that does not have corresponding request handler.
+ * This little wrapper function allows handling HTTP requests in a RESTful manner.
+ * Fastify might respond to a HEAD request correctly, but doesn't correctly respond
+ * with an HTTP 405 (Method Not Allowed) if a request method is not supported.
  *
- * For example if a resource allows only GET and POST requests then
- * PUT, DELETE, etc. requests will be responded with the 405.
+ * For example, if you define `get` and `post` handlers,
+ * HEAD, GET and POST are allowed and responded to accordingly,
+ * while PUT, DELETE, PATCH, etc. will be responded with HTTP 405
+ * with an "Allow" header containing the allowed methods.
  *
- * HTTP 405 is required to have Allow-header set to a list of allowed
- * methods so in this case the response has "Allow: GET, POST, HEAD" in its headers.
+ * For incoming HEAD requests, it tries to call the specified GET handler to generate a response.
+ * If you want to implement custom logic for HEAD requests, you can add a `head` handler.
  *
  * Example usage
  * ```
- *    // A handler that allows only GET (and HEAD) requests and returns
- *    app.all('/path', (req, res, next) => {
- *      restful(req, res, {
- *        get: () => {
- *          res.send('Hello world!');
- *        },
- *        post: async () => {
- *          await doSomethingAsync();
- *          res.send(`I did something async and don't need to catch errors to put them into #next`);
- *        }
- *      });
- *    });
+ * // A handler that allows only GET (and HEAD) requests
+ * fastify.all('/hello', (request, reply): Promise<FastifyReply> => {
+ *   return handleRestfully(request, reply, {
+ *     get: (): FastifyReply => {
+ *       return reply
+ *         .send(`Hello ${request.query.name ?? 'World'}!`);
+ *     },
+ *   });
+ * });
  * ```
- * Original author: https://stackoverflow.com/a/15754373/9346616
+ *
+ * @deprecated I think you are supposed to use Fastify a bit differently... I have to find a better way and will then remove this.
  */
-function handleRequestRestfully(req, res, next, handlers) {
-    const method = (req.method || '').toLowerCase();
+async function handleRestfully(request, reply, handlers) {
+    const method = request.method.toLowerCase();
     if (method in handlers) {
-        try {
-            const handlerResult = handlers[method]();
-            if (handlerResult instanceof Promise) {
-                handlerResult.catch(next);
-            }
-        }
-        catch (err) {
-            next(err);
-        }
-        return;
+        await handlers[method]();
+        return reply;
     }
     if (method == 'head' && 'get' in handlers) {
-        try {
-            const handlerResult = handlers['get']();
-            if (handlerResult instanceof Promise) {
-                handlerResult.catch(next);
-            }
-        }
-        catch (err) {
-            next(err);
-        }
-        return;
+        await handlers['get']();
+        return reply;
     }
     const allowedMethods = Object.keys(handlers);
     if (!allowedMethods.includes('head')) {
         allowedMethods.push('head');
     }
-    res.set('Allow', allowedMethods.join(', ').toUpperCase());
-    res.sendStatus(405);
+    return reply
+        .status(405)
+        .header('Allow', allowedMethods.join(', ').toUpperCase())
+        .send('Method Not Allowed');
 }
 //# sourceMappingURL=RestfulRequestHandler.js.map
