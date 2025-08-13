@@ -1,8 +1,5 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
-  "compilerOptions": {
-    "moduleResolution": "Node"
-  },
+  "extends": "../tsconfig.json",
   "include": [
     "./**/*.ts"
   ]
