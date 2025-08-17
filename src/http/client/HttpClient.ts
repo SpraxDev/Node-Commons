@@ -1,6 +1,6 @@
-import type HttpRequest from '../HttpRequest';
-import HttpResponse from '../HttpResponse.js';
-import { HttpClientEventType, PostRequestEvent, PreRequestEvent } from './HttpClientEvents';
+import type HttpRequest from '../HttpRequest.ts';
+import HttpResponse from '../HttpResponse.ts';
+import { HttpClientEventType, PostRequestEvent, PreRequestEvent } from './HttpClientEvents.ts';
 
 export type BaseRequestOptions = {
   headers?: { [key: string]: string };
@@ -48,8 +48,10 @@ export default abstract class HttpClient {
   public addEventListener(event: HttpClientEventType, callback: ((event: PreRequestEvent) => void | Promise<void>) | ((event: PostRequestEvent) => void | Promise<void>)): void {
     if (event === 'preRequest') {
       this.eventListener.pre.push(callback as any);
+      return;
     } else if (event === 'postRequest') {
       this.eventListener.post.push(callback as any);
+      return;
     }
 
     throw new Error(`Unknown event type: ${event}`);

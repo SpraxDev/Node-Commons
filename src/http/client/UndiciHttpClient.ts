@@ -1,8 +1,8 @@
 import * as Undici from 'undici';
-import HttpRequest from '../HttpRequest';
-import HttpResponse from '../HttpResponse';
-import HttpClient, { type FullRequestOptions, type GetRequestOptions, type PostRequestOptions } from './HttpClient';
-import { PostRequestEvent, PreRequestEvent } from './HttpClientEvents';
+import HttpRequest from '../HttpRequest.ts';
+import HttpResponse from '../HttpResponse.ts';
+import HttpClient, { type FullRequestOptions, type GetRequestOptions, type PostRequestOptions } from './HttpClient.ts';
+import { PostRequestEvent, PreRequestEvent } from './HttpClientEvents.ts';
 
 export default class UndiciHttpClient extends HttpClient {
   private agent?: Undici.Dispatcher;

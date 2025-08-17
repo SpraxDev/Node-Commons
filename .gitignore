@@ -1,12 +1,4 @@
-# Project
+/node_modules/
 #/dist/
 
-
-# npm and other dependencies
-/node_modules/
-/reports/
-/.stryker-tmp/
-
-
-# JetBrains IDEs
 /.idea/

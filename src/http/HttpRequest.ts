@@ -1,4 +1,4 @@
-import type { FullRequestOptions } from './client/HttpClient';
+import type { FullRequestOptions } from './client/HttpClient.ts';
 
 export default class HttpRequest {
   constructor(

@@ -1,5 +1,5 @@
-import type HttpRequest from '../HttpRequest';
-import type HttpResponse from '../HttpResponse';
+import type HttpRequest from '../HttpRequest.ts';
+import type HttpResponse from '../HttpResponse.ts';
 
 export type HttpClientEventType = 'preRequest' | 'postRequest';
 

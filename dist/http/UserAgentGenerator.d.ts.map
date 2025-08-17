@@ -1,1 +1,0 @@
-{"version":3,"file":"UserAgentGenerator.d.ts","sourceRoot":"","sources":["../../src/http/UserAgentGenerator.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,OAAO,kBAAkB;IACrC,MAAM,CAAC,QAAQ,CAAC,OAAO,EAAE,MAAM,EAAE,UAAU,EAAE,MAAM,EAAE,iBAAiB,GAAE,OAAc,EAAE,YAAY,CAAC,EAAE,MAAM,GAAG,MAAM;CAavH"}
