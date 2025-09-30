@@ -75,4 +75,4 @@ jobs:
 
       - name: SonarQube Scan
         if: env.SONAR_TOKEN != null
-        uses: SonarSource/sonarqube-scan-action@v5
+        uses: SonarSource/sonarqube-scan-action@v6
