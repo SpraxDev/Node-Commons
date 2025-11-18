@@ -20,15 +20,15 @@
   },
   "main": "./dist/index.cjs",
   "type": "module",
-  "module": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.cts",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
     "./http": {
-      "import": "./dist/http/index.js",
+      "import": "./dist/http/index.mjs",
       "require": "./dist/http/index.cjs"
     },
     "./package.json": "./package.json"
