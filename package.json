@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "ts-deepmerge": "^7.0.3",
-    "undici": "^7.16.0"
+    "undici": "^7.18.2"
   },
   "devDependencies": {
     "@stryker-mutator/typescript-checker": "^9.3.0",
