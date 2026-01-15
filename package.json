@@ -24,12 +24,12 @@
   "types": "./dist/index.d.cts",
   "exports": {
     ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
     },
     "./http": {
-      "import": "./dist/http/index.mjs",
-      "require": "./dist/http/index.cjs"
+      "require": "./dist/http/index.cjs",
+      "import": "./dist/http/index.mjs"
     },
     "./package.json": "./package.json"
   },
@@ -54,17 +54,17 @@
   },
   "dependencies": {
     "ts-deepmerge": "^7.0.3",
-    "undici": "^7.16.0"
+    "undici": "^7.18.2"
   },
   "devDependencies": {
-    "@stryker-mutator/typescript-checker": "^9.3.0",
-    "@stryker-mutator/vitest-runner": "^9.3.0",
+    "@stryker-mutator/typescript-checker": "^9.4.0",
+    "@stryker-mutator/vitest-runner": "^9.4.0",
     "@tsconfig/node22": "^22.0.5",
-    "@types/node": "^22.19.1",
-    "@vitest/coverage-v8": "^4.0.10",
+    "@types/node": "^22.19.6",
+    "@vitest/coverage-v8": "^4.0.17",
     "fastify": "^5.6.2",
-    "tsdown": "^0.16.5",
+    "tsdown": "^0.19.0",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.10"
+    "vitest": "^4.0.17"
   }
 }
