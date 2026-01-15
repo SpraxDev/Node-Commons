@@ -1,2 +1,3 @@
+import "../chunk-DiDl8AHU.mjs";
 import { a as FullRequestOptions, c as PostRequestOptions, i as HttpRequest, l as HttpClientEvents_d_exports, n as UserAgentGenerator, o as GetRequestOptions, r as UndiciHttpClient, s as HttpClient, u as HttpResponse } from "../index-C4LIl1mY.mjs";
 export { FullRequestOptions, GetRequestOptions, HttpClient, HttpClientEvents_d_exports as HttpClientEvents, HttpRequest, HttpResponse, PostRequestOptions, UndiciHttpClient, UserAgentGenerator };

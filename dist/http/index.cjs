@@ -1,4 +1,4 @@
-const require_http = require('../http-W5ffyS-h.cjs');
+const require_http = require('../http-CyvDUD6M.cjs');
 
 exports.HttpClient = require_http.HttpClient;
 Object.defineProperty(exports, 'HttpClientEvents', {
