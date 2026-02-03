@@ -62,7 +62,7 @@
     "@tsconfig/node22": "^22.0.5",
     "@types/node": "^22.19.6",
     "@vitest/coverage-v8": "^4.0.17",
-    "fastify": "^5.6.2",
+    "fastify": "^5.7.3",
     "tsdown": "^0.19.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.17"
