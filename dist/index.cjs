@@ -1,9 +1,11 @@
-const require_http = require('./http-CyvDUD6M.cjs');
+Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+const require_UserAgentGenerator = require('./UserAgentGenerator-B8SgunEG.cjs');
+const require_http_index = require('./http/index.cjs');
 let node_net = require("node:net");
-node_net = require_http.__toESM(node_net);
+node_net = require_UserAgentGenerator.__toESM(node_net);
 
 //#region src/strings/StringUtils.ts
-var StringUtils_exports = /* @__PURE__ */ require_http.__exportAll({ default: () => StringUtils });
+var StringUtils_exports = /* @__PURE__ */ require_UserAgentGenerator.__exportAll({ default: () => StringUtils });
 var StringUtils = class {
 	/**
 	* Return true if the given string only contains number characters.
@@ -61,7 +63,7 @@ var StringUtils = class {
 
 //#endregion
 //#region src/strings/StringValidators.ts
-var StringValidators_exports = /* @__PURE__ */ require_http.__exportAll({
+var StringValidators_exports = /* @__PURE__ */ require_UserAgentGenerator.__exportAll({
 	EMAIL_PATTERN: () => EMAIL_PATTERN,
 	HOSTNAME_PATTERN: () => HOSTNAME_PATTERN,
 	default: () => StringValidators
@@ -124,7 +126,7 @@ Object.defineProperty(exports, 'StringValidators', {
 Object.defineProperty(exports, 'http', {
   enumerable: true,
   get: function () {
-    return require_http.http_exports;
+    return require_http_index.http_exports;
   }
 });
 //# sourceMappingURL=index.cjs.map
