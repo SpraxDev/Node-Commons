@@ -54,17 +54,17 @@
   },
   "dependencies": {
     "ts-deepmerge": "^7.0.3",
-    "undici": "^7.22.0"
+    "undici": "^7.24.6"
   },
   "devDependencies": {
-    "@stryker-mutator/typescript-checker": "^9.5.1",
-    "@stryker-mutator/vitest-runner": "^9.5.1",
+    "@stryker-mutator/typescript-checker": "^9.6.0",
+    "@stryker-mutator/vitest-runner": "^9.6.0",
     "@tsconfig/node22": "^22.0.5",
-    "@types/node": "^22.19.11",
-    "@vitest/coverage-v8": "^4.0.18",
-    "fastify": "^5.7.4",
-    "tsdown": "^0.20.3",
+    "@types/node": "^22.19.15",
+    "@vitest/coverage-v8": "^4.1.1",
+    "fastify": "^5.8.4",
+    "tsdown": "^0.21.5",
     "typescript": "^5.9.3",
-    "vitest": "^4.0.18"
+    "vitest": "^4.1.1"
   }
 }
