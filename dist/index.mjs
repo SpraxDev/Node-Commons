@@ -1,8 +1,6 @@
-import { t as __exportAll } from "./chunk-CkzbjWQW.mjs";
-import "./UserAgentGenerator-BwnmBwAX.mjs";
-import { t as http_exports } from "./http/index.mjs";
+import { t as __exportAll } from "./chunk-CfYAbeIz.mjs";
+import { t as http_exports } from "./http-Dq3efqKa.mjs";
 import Net from "node:net";
-
 //#region src/strings/StringUtils.ts
 var StringUtils_exports = /* @__PURE__ */ __exportAll({ default: () => StringUtils });
 var StringUtils = class {
@@ -49,17 +47,12 @@ var StringUtils = class {
 	static format(str, args, fallbackValue) {
 		const regex = Array.isArray(args) ? /{{|}}|{(\d+)}/g : /{{|}}|{(.+?)}/g;
 		return str.replace(regex, (curlyBracket, key) => {
-			if (curlyBracket == "{{") {
-				return "{";
-			}
-			if (curlyBracket == "}}") {
-				return "}";
-			}
+			if (curlyBracket == "{{") return "{";
+			if (curlyBracket == "}}") return "}";
 			return args[key] ?? fallbackValue ?? `{${key}}`;
 		});
 	}
 };
-
 //#endregion
 //#region src/strings/StringValidators.ts
 var StringValidators_exports = /* @__PURE__ */ __exportAll({
@@ -71,34 +64,24 @@ const HOSTNAME_PATTERN = /(?=^.{4,253}$)(^((?!-)[a-z0-9-]{0,62}[a-z0-9]\.)+[a-z]
 const EMAIL_PATTERN = /^[a-z0-9.!#$%&'*+/="?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$/i;
 var StringValidators = class {
 	static looksLikeHttpUrl(url) {
-		if (!/^https?:\/\/.*$/i.test(url)) {
-			return {
-				valid: false,
-				issue: "protocol"
-			};
-		}
+		if (!/^https?:\/\/.*$/i.test(url)) return {
+			valid: false,
+			issue: "protocol"
+		};
 		let lowerHost = url.toLowerCase().substring(url.indexOf("/") + 2);
-		if (lowerHost.indexOf("/") != -1) {
-			lowerHost = lowerHost.substring(0, lowerHost.indexOf("/"));
-		}
+		if (lowerHost.indexOf("/") != -1) lowerHost = lowerHost.substring(0, lowerHost.indexOf("/"));
 		if (lowerHost.lastIndexOf(":") != -1) {
 			const portStr = lowerHost.substring(lowerHost.lastIndexOf(":") + 1);
 			const port = parseInt(portStr, 10);
 			lowerHost = lowerHost.substring(0, lowerHost.lastIndexOf(":"));
-			if (!StringUtils.isNumeric(portStr) || port <= 0 || port > 65535) {
-				return {
-					valid: false,
-					issue: "port"
-				};
-			}
+			if (!StringUtils.isNumeric(portStr) || port <= 0 || port > 65535) return {
+				valid: false,
+				issue: "port"
+			};
 		}
-		if (Net.isIPv4(lowerHost) || Net.isIPv6(lowerHost) || lowerHost == "localhost") {
-			return { valid: true };
-		}
+		if (Net.isIPv4(lowerHost) || Net.isIPv6(lowerHost) || lowerHost == "localhost") return { valid: true };
 		const valid = HOSTNAME_PATTERN.test(lowerHost);
-		if (valid) {
-			return { valid };
-		}
+		if (valid) return { valid };
 		return {
 			valid,
 			issue: "hostname"
@@ -108,7 +91,7 @@ var StringValidators = class {
 		return EMAIL_PATTERN.test(email);
 	}
 };
-
 //#endregion
 export { StringUtils_exports as StringUtils, StringValidators_exports as StringValidators, http_exports as http };
+
 //# sourceMappingURL=index.mjs.map

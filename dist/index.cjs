@@ -1,11 +1,9 @@
-Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-const require_UserAgentGenerator = require('./UserAgentGenerator-B8SgunEG.cjs');
-const require_http_index = require('./http/index.cjs');
+Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
+const require_http = require("./http-KhnsNlG5.cjs");
 let node_net = require("node:net");
-node_net = require_UserAgentGenerator.__toESM(node_net);
-
+node_net = require_http.__toESM(node_net);
 //#region src/strings/StringUtils.ts
-var StringUtils_exports = /* @__PURE__ */ require_UserAgentGenerator.__exportAll({ default: () => StringUtils });
+var StringUtils_exports = /* @__PURE__ */ require_http.__exportAll({ default: () => StringUtils });
 var StringUtils = class {
 	/**
 	* Return true if the given string only contains number characters.
@@ -50,20 +48,15 @@ var StringUtils = class {
 	static format(str, args, fallbackValue) {
 		const regex = Array.isArray(args) ? /{{|}}|{(\d+)}/g : /{{|}}|{(.+?)}/g;
 		return str.replace(regex, (curlyBracket, key) => {
-			if (curlyBracket == "{{") {
-				return "{";
-			}
-			if (curlyBracket == "}}") {
-				return "}";
-			}
+			if (curlyBracket == "{{") return "{";
+			if (curlyBracket == "}}") return "}";
 			return args[key] ?? fallbackValue ?? `{${key}}`;
 		});
 	}
 };
-
 //#endregion
 //#region src/strings/StringValidators.ts
-var StringValidators_exports = /* @__PURE__ */ require_UserAgentGenerator.__exportAll({
+var StringValidators_exports = /* @__PURE__ */ require_http.__exportAll({
 	EMAIL_PATTERN: () => EMAIL_PATTERN,
 	HOSTNAME_PATTERN: () => HOSTNAME_PATTERN,
 	default: () => StringValidators
@@ -72,34 +65,24 @@ const HOSTNAME_PATTERN = /(?=^.{4,253}$)(^((?!-)[a-z0-9-]{0,62}[a-z0-9]\.)+[a-z]
 const EMAIL_PATTERN = /^[a-z0-9.!#$%&'*+/="?^_`{|}~-]+@[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)*$/i;
 var StringValidators = class {
 	static looksLikeHttpUrl(url) {
-		if (!/^https?:\/\/.*$/i.test(url)) {
-			return {
-				valid: false,
-				issue: "protocol"
-			};
-		}
+		if (!/^https?:\/\/.*$/i.test(url)) return {
+			valid: false,
+			issue: "protocol"
+		};
 		let lowerHost = url.toLowerCase().substring(url.indexOf("/") + 2);
-		if (lowerHost.indexOf("/") != -1) {
-			lowerHost = lowerHost.substring(0, lowerHost.indexOf("/"));
-		}
+		if (lowerHost.indexOf("/") != -1) lowerHost = lowerHost.substring(0, lowerHost.indexOf("/"));
 		if (lowerHost.lastIndexOf(":") != -1) {
 			const portStr = lowerHost.substring(lowerHost.lastIndexOf(":") + 1);
 			const port = parseInt(portStr, 10);
 			lowerHost = lowerHost.substring(0, lowerHost.lastIndexOf(":"));
-			if (!StringUtils.isNumeric(portStr) || port <= 0 || port > 65535) {
-				return {
-					valid: false,
-					issue: "port"
-				};
-			}
+			if (!StringUtils.isNumeric(portStr) || port <= 0 || port > 65535) return {
+				valid: false,
+				issue: "port"
+			};
 		}
-		if (node_net.default.isIPv4(lowerHost) || node_net.default.isIPv6(lowerHost) || lowerHost == "localhost") {
-			return { valid: true };
-		}
+		if (node_net.default.isIPv4(lowerHost) || node_net.default.isIPv6(lowerHost) || lowerHost == "localhost") return { valid: true };
 		const valid = HOSTNAME_PATTERN.test(lowerHost);
-		if (valid) {
-			return { valid };
-		}
+		if (valid) return { valid };
 		return {
 			valid,
 			issue: "hostname"
@@ -109,24 +92,24 @@ var StringValidators = class {
 		return EMAIL_PATTERN.test(email);
 	}
 };
-
 //#endregion
-Object.defineProperty(exports, 'StringUtils', {
-  enumerable: true,
-  get: function () {
-    return StringUtils_exports;
-  }
+Object.defineProperty(exports, "StringUtils", {
+	enumerable: true,
+	get: function() {
+		return StringUtils_exports;
+	}
 });
-Object.defineProperty(exports, 'StringValidators', {
-  enumerable: true,
-  get: function () {
-    return StringValidators_exports;
-  }
+Object.defineProperty(exports, "StringValidators", {
+	enumerable: true,
+	get: function() {
+		return StringValidators_exports;
+	}
 });
-Object.defineProperty(exports, 'http', {
-  enumerable: true,
-  get: function () {
-    return require_http_index.http_exports;
-  }
+Object.defineProperty(exports, "http", {
+	enumerable: true,
+	get: function() {
+		return require_http.http_exports;
+	}
 });
+
 //# sourceMappingURL=index.cjs.map
