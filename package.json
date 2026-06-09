@@ -53,18 +53,18 @@
     "npm": ">=10.0.0"
   },
   "dependencies": {
-    "ts-deepmerge": "^7.0.3",
-    "undici": "^8.2.0"
+    "ts-deepmerge": "^8.0.0",
+    "undici": "^8.4.1"
   },
   "devDependencies": {
     "@stryker-mutator/typescript-checker": "^9.6.1",
     "@stryker-mutator/vitest-runner": "^9.6.1",
     "@tsconfig/node22": "^22.0.5",
-    "@types/node": "^22.19.19",
-    "@vitest/coverage-v8": "^4.1.6",
+    "@types/node": "^22.19.20",
+    "@vitest/coverage-v8": "^4.1.8",
     "fastify": "^5.8.5",
-    "tsdown": "^0.22.0",
+    "tsdown": "^0.22.2",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.6"
+    "vitest": "^4.1.8"
   }
 }
