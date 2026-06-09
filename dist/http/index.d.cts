@@ -1,2 +1,2 @@
-import { a as FullRequestOptions, c as PostRequestOptions, i as HttpRequest, l as HttpClientEvents_d_exports, n as UserAgentGenerator, o as GetRequestOptions, r as UndiciHttpClient, s as HttpClient, u as HttpResponse } from "../index-B7wF4Mpa.cjs";
-export { FullRequestOptions, GetRequestOptions, HttpClient, HttpClientEvents_d_exports as HttpClientEvents, HttpRequest, HttpResponse, PostRequestOptions, UndiciHttpClient, UserAgentGenerator };
+import { a as FullRequestOptions, c as PostRequestOptions, i as HttpRequest, l as HttpClientEvents_d_exports, n as UserAgentGenerator, o as GetRequestOptions, r as UndiciHttpClient, s as HttpClient, u as HttpResponse } from "../index-20HtXwjs.cjs";
+export { type FullRequestOptions, type GetRequestOptions, HttpClient, HttpClientEvents_d_exports as HttpClientEvents, HttpRequest, HttpResponse, type PostRequestOptions, UndiciHttpClient, UserAgentGenerator };

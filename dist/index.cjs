@@ -1,5 +1,5 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_http = require("./http-CRoU-pmJ.cjs");
+const require_http = require("./http-DiBCgHNs.cjs");
 let node_net = require("node:net");
 node_net = require_http.__toESM(node_net, 1);
 //#region src/strings/StringUtils.ts

@@ -1,2 +1,2 @@
-import { a as HttpClientEvents_exports, i as HttpClient, n as UserAgentGenerator, o as HttpResponse, r as UndiciHttpClient, s as HttpRequest } from "../http-BCVpA7kR.mjs";
+import { a as HttpClientEvents_exports, i as HttpClient, n as UserAgentGenerator, o as HttpResponse, r as UndiciHttpClient, s as HttpRequest } from "../http-C47MJy1C.mjs";
 export { HttpClient, HttpClientEvents_exports as HttpClientEvents, HttpRequest, HttpResponse, UndiciHttpClient, UserAgentGenerator };
