@@ -1,5 +1,5 @@
 Object.defineProperty(exports, Symbol.toStringTag, { value: "Module" });
-const require_http = require("../http-DiBCgHNs.cjs");
+const require_http = require("../http-uY7GnURQ.cjs");
 exports.HttpClient = require_http.HttpClient;
 Object.defineProperty(exports, "HttpClientEvents", {
 	enumerable: true,

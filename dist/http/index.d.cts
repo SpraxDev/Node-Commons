@@ -1,2 +1,2 @@
-import { a as FullRequestOptions, c as PostRequestOptions, i as HttpRequest, l as HttpClientEvents_d_exports, n as UserAgentGenerator, o as GetRequestOptions, r as UndiciHttpClient, s as HttpClient, u as HttpResponse } from "../index-20HtXwjs.cjs";
+import { a as FullRequestOptions, c as PostRequestOptions, i as HttpRequest, l as HttpClientEvents_d_exports, n as UserAgentGenerator, o as GetRequestOptions, r as UndiciHttpClient, s as HttpClient, u as HttpResponse } from "../index-DgDlDGXK.cjs";
 export { type FullRequestOptions, type GetRequestOptions, HttpClient, HttpClientEvents_d_exports as HttpClientEvents, HttpRequest, HttpResponse, type PostRequestOptions, UndiciHttpClient, UserAgentGenerator };
