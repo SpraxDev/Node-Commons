@@ -1,4 +1,5 @@
 import { t as index_d_exports } from "./index-DgVNemVB.mjs";
+import { t as index_d_exports$1 } from "./index-_2ZJpBWj.mjs";
 declare namespace StringUtils_d_exports {
   export { StringUtils as default };
 }
@@ -59,5 +60,5 @@ declare class StringValidators {
   static looksLikeValidEmail(email: string): boolean;
 }
 //#endregion
-export { StringUtils_d_exports as StringUtils, StringValidators_d_exports as StringValidators, index_d_exports as http };
+export { StringUtils_d_exports as StringUtils, StringValidators_d_exports as StringValidators, index_d_exports as http, index_d_exports$1 as util };
 //# sourceMappingURL=index.d.mts.map
