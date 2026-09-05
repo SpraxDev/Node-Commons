@@ -1,7 +1,7 @@
-import Fs from 'fs';
-import Path from 'path';
+import Fs from 'node:fs';
+import Path from 'node:path';
 import { vitest } from 'vitest';
-import ConfigFile, { LazyDefaults } from '../src/util/ConfigFile.js';
+import ConfigFile, { LazyDefaults } from '../../src/util/ConfigFile.ts';
 
 interface TestCfg extends LazyDefaults {
   str: string;
