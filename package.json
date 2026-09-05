@@ -31,6 +31,10 @@
       "import": "./dist/http/index.mjs",
       "require": "./dist/http/index.cjs"
     },
+    "./util": {
+      "import": "./dist/util/index.mjs",
+      "require": "./dist/util/index.cjs"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
