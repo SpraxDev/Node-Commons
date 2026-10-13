@@ -58,16 +58,16 @@
   },
   "dependencies": {
     "ts-deepmerge": "^8.0.0",
-    "undici": "^8.10.2"
+    "undici": "^8.11.2"
   },
   "devDependencies": {
     "@stryker-mutator/typescript-checker": "^10.0.0",
     "@stryker-mutator/vitest-runner": "^10.0.0",
     "@tsconfig/node22": "^22.0.6",
-    "@types/node": "^22.20.1",
+    "@types/node": "^22.20.5",
     "@vitest/coverage-v8": "^4.1.11",
-    "fastify": "^5.12.3",
-    "tsdown": "^0.23.0",
+    "fastify": "^5.12.7",
+    "tsdown": "^0.23.1",
     "typescript": "^6.0.3",
     "vitest": "^4.1.11"
   }
